@@ -1,0 +1,84 @@
+name: Lagrange.OneBot Build
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "Lagrange.OneBot.DatabaseShift/**"
+      - "Lagrange.OneBot.DatabaseShift.sln"
+  pull_request:
+    branches: 
+      - master
+    paths:
+      - "Lagrange.OneBot.DatabaseShift/**"
+      - "Lagrange.OneBot.DatabaseShift.sln"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        runtimeIdentifier:
+          [
+            win-x64,
+            win-x86,
+            linux-x64,
+            linux-arm,
+            linux-arm64,
+            osx-x64,
+            osx-arm64,
+            linux-musl-x64,
+            linux-musl-arm,
+            linux-musl-arm64,
+          ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+          
+      - name: Build Lagrange.OneBot .NET 8.0 NoSelfContained
+        run: dotnet publish Lagrange.OneBot.DatabaseShift --no-self-contained -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=none -p:RuntimeIdentifier=${{ matrix.runtimeIdentifier }} --framework net8.0
+
+      - name: Build Lagrange.OneBot .NET 9.0 NoSelfContained
+        run: dotnet publish Lagrange.OneBot.DatabaseShift --no-self-contained -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=none -p:RuntimeIdentifier=${{ matrix.runtimeIdentifier }} --framework net9.0
+
+      - name: Upload binary files(${{ matrix.runtimeIdentifier }}) for .NET 8.0
+        uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: Lagrange.OneBot_${{ matrix.runtimeIdentifier }}_net8.0_NoSelfContained
+          path: Lagrange.OneBot/bin/Release/net8.0/${{ matrix.runtimeIdentifier }}/publish
+          
+      - name: Upload binary files(${{ matrix.runtimeIdentifier }}) for .NET 9.0
+        uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: Lagrange.OneBot_${{ matrix.runtimeIdentifier }}_net9.0_NoSelfContained
+          path: Lagrange.OneBot/bin/Release/net9.0/${{ matrix.runtimeIdentifier }}/publish
+
+      - name: Build Lagrange.OneBot .NET 8.0 SelfContained
+        run: dotnet publish Lagrange.OneBot.DatabaseShift --self-contained -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=none -p:RuntimeIdentifier=${{ matrix.runtimeIdentifier }} --framework net8.0
+
+      - name: Build Lagrange.OneBot .NET 9.0 SelfContained
+        run: dotnet publish Lagrange.OneBot.DatabaseShift --self-contained -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=none -p:RuntimeIdentifier=${{ matrix.runtimeIdentifier }} --framework net9.0
+
+      - name: Upload binary files(${{ matrix.runtimeIdentifier }}) for .NET 8.0
+        uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: Lagrange.OneBot_${{ matrix.runtimeIdentifier }}_net8.0_SelfContained
+          path: Lagrange.OneBot/bin/Release/net8.0/${{ matrix.runtimeIdentifier }}/publish
+          
+      - name: Upload binary files(${{ matrix.runtimeIdentifier }}) for .NET 9.0
+        uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: Lagrange.OneBot_${{ matrix.runtimeIdentifier }}_net9.0_SelfContained
+          path: Lagrange.OneBot/bin/Release/net9.0/${{ matrix.runtimeIdentifier }}/publish

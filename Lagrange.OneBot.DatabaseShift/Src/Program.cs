@@ -9,7 +9,6 @@ using System.Text;
 using Lagrange.OneBot.Database;
 using Lagrange.OneBot.DatabaseShift.Exceptions;
 using Lagrange.OneBot.DatabaseShift.Extensions;
-using Lagrange.OneBot.Realms;
 using Lagrange.OneBot.Utility;
 using LiteDB;
 using Realms;

@@ -2,7 +2,7 @@ using Lagrange.Core.Message;
 using MessagePack;
 using MessagePack.Formatters;
 
-namespace Lagrange.OneBot.Realms;
+namespace Lagrange.OneBot.Database;
 
 public class MessageEntityResolver : IFormatterResolver
 {

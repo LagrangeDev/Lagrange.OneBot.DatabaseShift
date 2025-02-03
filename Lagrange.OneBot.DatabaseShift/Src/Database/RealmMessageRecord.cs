@@ -9,7 +9,7 @@ using static Lagrange.Core.Message.MessageChain;
 
 using LiteDBMessageRecord = Lagrange.OneBot.Database.MessageRecord;
 
-namespace Lagrange.OneBot.Realms;
+namespace Lagrange.OneBot.Database;
 
 #pragma warning disable CS8618
 
