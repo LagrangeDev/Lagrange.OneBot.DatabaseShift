@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lagrange.OneBot.DatabaseShift", "Lagrange.OneBot.DatabaseShift\Lagrange.OneBot.DatabaseShift.csproj", "{ACCF3B3A-B05C-45FE-90B5-B1104C47AA32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lagrange.Core", "Lagrange.Core", "{98B3BC13-DC69-47CF-A54A-DC7144DC0644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lagrange.Core", "Lagrange.Core\Lagrange.Core\Lagrange.Core.csproj", "{2AAA5357-7B73-4528-9992-53950F44502A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lagrange.OneBot", "Lagrange.Core\Lagrange.OneBot\Lagrange.OneBot.csproj", "{36A97A37-C9DA-4C34-80D3-43FD72459D94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACCF3B3A-B05C-45FE-90B5-B1104C47AA32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCF3B3A-B05C-45FE-90B5-B1104C47AA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCF3B3A-B05C-45FE-90B5-B1104C47AA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCF3B3A-B05C-45FE-90B5-B1104C47AA32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AAA5357-7B73-4528-9992-53950F44502A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AAA5357-7B73-4528-9992-53950F44502A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AAA5357-7B73-4528-9992-53950F44502A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AAA5357-7B73-4528-9992-53950F44502A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A97A37-C9DA-4C34-80D3-43FD72459D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A97A37-C9DA-4C34-80D3-43FD72459D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A97A37-C9DA-4C34-80D3-43FD72459D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A97A37-C9DA-4C34-80D3-43FD72459D94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2AAA5357-7B73-4528-9992-53950F44502A} = {98B3BC13-DC69-47CF-A54A-DC7144DC0644}
+		{36A97A37-C9DA-4C34-80D3-43FD72459D94} = {98B3BC13-DC69-47CF-A54A-DC7144DC0644}
+	EndGlobalSection
+EndGlobal
