@@ -1,4 +1,4 @@
-name: Lagrange.OneBot Build
+name: Lagrange.OneBot.DatabaseShift Build
 
 on:
   push:
